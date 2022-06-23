@@ -1,0 +1,28 @@
+{%extends 'index.html'%}
+{%block title%}
+   update
+{%endblock%}
+{%block content%}
+ <form method="post" >
+        {% csrf_token %}
+
+        <label>Name</label>
+        <input type="text" name="name" value="{{trainees.name}}">
+        </br>
+        </br>
+         <label>n_number</label>
+        <input type="number" name="nationalnumber" value="{{trainees.nationalnumber}}">
+         </br>
+         </br>
+         <label>Course</label>
+            <select name="course">
+                {%for c in courses%}
+                <option value="{{c.id}}">{{c.name}}</option>
+                {%endfor%}
+
+            </select>
+
+         <input type="submit" name="update" value="update"/>
+
+    </form>
+{%endblock%}

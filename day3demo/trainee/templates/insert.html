@@ -1,0 +1,25 @@
+{%extends 'index.html'%}
+{%block title%}
+        insert
+{%endblock%}
+{%block content%}
+ <form method="post" action="/trainee/insert/">
+        {% csrf_token %}
+         <h2>{{request.session.username}}</h2>
+          <label>Name</label>
+        <input type="text" name="name" value="">
+        </br>
+        </br>
+         <label>n_number</label>
+        <input type="number" name="nationalnumber" value="">
+         </br>
+         </br>
+         <label>Course</label>
+         <select name="course">
+             {%for c in courses%}
+             <option value="{{c.id}}">{{c.name}}</option>
+                {%endfor%}
+         <input type="submit" name="insert" value="Insert"/>
+
+    </form>
+{%endblock%}
